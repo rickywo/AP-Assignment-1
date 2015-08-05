@@ -44,9 +44,12 @@ public class PartStore {
 		p.parts[4] = new Part("GW750TI2G","Gainward 2G GTX 750TI",169.0,2);
 		p.initMenu();
 		while(run) {
+			// Print menu
 			p.printMenu();
+			// Get input
 			System.out.print(" Enter selection: ");
 			char a = reader.next().charAt(0);
+			// Process input
 			switch(a) {
 			case 'A':
 				p.handleMakeSale();

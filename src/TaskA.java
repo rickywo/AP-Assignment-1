@@ -46,7 +46,7 @@ public class TaskA {
 		printMaskedName(maskName);
 		
 		// Loop for 5 times for guessing
-		for(int i = 0 ; i < loop ; i ++) {
+		for(int i = 0 ; i < NUMBERTRYING ; i ++) {
 			System.out.printf("\n\n Round #%d... ", i+1);
 			checkInputChar(veg, maskName);
 			printMaskedName(maskName);
@@ -70,7 +70,7 @@ public class TaskA {
 	
 	/**
 	 * Prints the masked name as following format
-	 * _ _ _ _ _ _ _ _ _
+	 * _ _ _ _ _ c _ _ _
 	 *
 	 * @param a the char array of masked name to be passed
 	 */
@@ -98,8 +98,12 @@ public class TaskA {
 		System.out.print("\n Input a Character to reveal any matched alphabet : ");
 		// To validate the input is in between a valid range (a-z)
 		while(!flag) {
-			c = reader.next().charAt(0);
-			if(c >= 'a' && c <= 'z') {
+			String s = reader.next();
+			s = s.toLowerCase(); // Accept input in both capital or lower case
+			c = s.charAt(0); 
+			if((c >= 'a' && c <= 'z') && s.length() == 1) { 
+				// Ensure input char is in between a-z
+				// Ensure the input is only 1 char
 				flag = true;
 			}
 			else {
